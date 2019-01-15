@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/hola-mundo',function(){
+	return view('hola-mundo');
+});
+
 Route::post('/holamundo',function(){
-	return "hola nuevo proyecto";
+	return 'hola nuevo proyecto';
 });
 
 Route::match(['get','post'],'/metodos', function(){
@@ -49,3 +53,10 @@ Route::get('/prueba/{nombre?}/{edad?}', function($nombre = "nombre por defecto, 
 	'nombre'=> '[A-Za-z]+', //solo letras
 	'edad'=> '[0-9]+' //solo numeros
 ]);
+
+//rutas para controladores
+
+Route::get('/frutas', 'FrutasController@index');
+
+
+
