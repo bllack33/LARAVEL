@@ -57,6 +57,9 @@ Route::get('/prueba/{nombre?}/{edad?}', function($nombre = "nombre por defecto, 
 //rutas para controladores
 
 Route::get('/frutas', 'FrutasController@index');
+Route::get('/naranjas', 'FrutasController@naranjas');
+Route::get('/peras', 'FrutasController@peras');
+
 
 
 

@@ -11,4 +11,12 @@ class FrutasController extends Controller
     	return view('frutas.index')
     			->with('frutas', array('fresa','mora','manzana','peras','mango','seis','siete','ocho','nueve','diz','once'));
     }
+
+    public function naranjas(){
+    	return 'accion de naranjas';
+    }
+    public function peras(){
+    	return 'accion de peras';
+    }
+
 }
