@@ -56,10 +56,28 @@ Route::get('/prueba/{nombre?}/{edad?}', function($nombre = "nombre por defecto, 
 
 //rutas para controladores
 
-Route::get('/frutas', 'FrutasController@index');
-Route::get('/naranjas', 'FrutasController@naranjas');
-Route::get('/peras', 'FrutasController@peras');
+// Route::get('/frutas', 'FrutasController@getIndex');
+
+// Route::get('/peras', 'FrutasController@anyPeras');
+
+// //manejando middleware y para esto se declara en el kernel.php
+// Route::get('/naranjas/{admin?}', [ 'middleware' => 'EsAdmin',
+// 							'uses' => 'FrutasController@getNaranjas'
+// 						]);
+
+//para utilizar un prefijo 'fruteria', http://www.cursol2laravel.net/fruteria/frutas
+Route::group(['prefix' => 'fruteria'], function(){
+
+	Route::get('/frutas', 'FrutasController@getIndex');
+
+	Route::get('/peras', 'FrutasController@anyPeras');
+
+	//manejando middleware y para esto se declara en el kernel.php
+	Route::get('/naranjas/{admin?}', [ 'middleware' => 'EsAdmin',
+								'uses' => 'FrutasController@getNaranjas'
+							]);
+});
 
 
-
+Route::post('/recibir','FrutasController@recibirFormulario');
 
