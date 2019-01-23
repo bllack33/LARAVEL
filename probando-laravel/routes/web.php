@@ -78,8 +78,23 @@ Route::group(['prefix' => 'fruteria'], function(){
 							]);
 });
 
-
+//LISTAR NOTAS
 Route::get('/notas','NotesController@getIndex');
-Route::get('/note/{id}','NotesController@getNote');
+Route::get('/note/{id}','NotesController@getNote');//muestra la nota mandadola por get
+
+//GUARDAR NOTAS
+Route::get('/save-Note','NotesController@getSaveNote');//muestra la pagina
+Route::post('/saveNote','NotesController@postNote'); //para guardar por post
+
+//ELIMINAR NOTAS
+Route::get('/delete-note/{id}','NotesController@getDeleteNote');
+
+//ACTUALIZAR NOTAS
+Route::get('/update-note/{id}','NotesController@getUpdateNote');
+Route::post('/updateNote/{id}','NotesController@postUpdateNote');
+
+
+
+
 
 
