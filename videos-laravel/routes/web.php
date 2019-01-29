@@ -33,3 +33,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//rutas del controlador de videos
+Route::get('/crear-video',array(
+	'as' => 'createVideo', //nombre de ruta
+	'middleware' =>'auth', //este nombre esta por defecto y comprueba si esta logueado o no
+	'uses' => 'VideoController@createVideo' //usa el controlador video y la accion de crear video.
+));
