@@ -1,4 +1,6 @@
-@extends('layouts.app')
+{{-- para cargar el menu de navegacion de la plantilla principal --}}
+@extends('layouts.app')  
+
 
 @section('content')
 <div class="container">
