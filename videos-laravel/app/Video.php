@@ -17,6 +17,5 @@ class Video extends Model
     //relacion de Muchos a uno, saca el usuario completo que ha creado el video, belongsTo
     public function user(){
     	return $this->belongsTo('App\User','user_id'); //carga todo el usuario que se identifique con ese campo
-
     }
 }
