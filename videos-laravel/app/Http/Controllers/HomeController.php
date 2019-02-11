@@ -28,7 +28,7 @@ class HomeController extends Controller
         //este metodo se usa si no se importa el modelo 'use App\Video;'
         //$videos = DB::table('videos')->paginate(5);
         
-        $videos = Video::orderBy('id','asc')->paginate(5);
+        $videos = Video::orderBy('id','desc')->paginate(5);
 
         return view('home', compact('videos'));
     }

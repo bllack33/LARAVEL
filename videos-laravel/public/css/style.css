@@ -1,0 +1,18 @@
+body{
+
+}
+#video-list .panel-body{
+	padding-left: 0px; 
+}
+
+
+.video-image-mask{
+	width: 50%;
+	height: 50%;
+	overflow: hidden;
+	margin-bottom: 20%;
+}
+
+.video-image-mask .video-image{
+	width: 105%;	
+}
