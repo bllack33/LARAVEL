@@ -64,3 +64,24 @@ Route::get('video-file/{filename}',array(
 	'as' => 'filevideo',
 	'uses' => 'VideoController@getVideo'
 ));
+
+//borrar video
+Route::get('/delete-video/{video_id}', array(
+	'as' => 'videoDelete',
+	'middleware' => 'auth',
+	'uses' => 'VideoController@getDelete'
+));
+
+//Comentarios
+Route::post('/comment', array(
+	'as' => 'comment',
+	'middleware' => 'auth',
+	'uses' => 'CommetController@store'
+));
+
+Route::get('/delete-comment/{comment_id}', array(
+	'as' => 'commentDelete',
+	'middleware' => 'auth',
+	'uses' => 'CommetController@getDelete'
+));
+

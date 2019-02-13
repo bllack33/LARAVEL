@@ -88,8 +88,12 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @yield('content')            
         </main>
+        <footer class="col-md-10 offset-md-2">
+            <hr>
+            <p>Curso de Laravel 5.7 de Juan David P.</p>
+        </footer>
     </div>
 </body>
 </html>

@@ -25,10 +25,35 @@
                                <p>{{$video->user->name.' '. $video->user->surname}}</p>
                             </div>
                             {{-- BOTONES DE ACCION--}}
-                            <a href="" class="btn btn-success">Ver</a>
-                            @if(Auth::check() && Auth::user()->id == $video->user->id)
+                            <a href="{{route('detailVideo',['video_id' => $video->id])}}" class="btn btn-success">Ver</a>
+                            @if(Auth::check() && (Auth::user()->id == $video->user->id || $video->user->role == 'ADMIN'))
                                 <a href="" class="btn btn-warning">Editar</a>
-                                <a href="" class="btn btn-danger">Eliminar</a>
+                                <a href="Modal{{$video->id}}" type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal{{$video->id}}">
+                                  Eliminar
+                                </a>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="Modal{{$video->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                  <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">¿Estás seguro?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p>¿Seguro que quieres borrar el video?</p>
+                                        <p class="text-danger"><small>- {{$video->title}}</small></p>
+                                      </div>
+
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        <a href="{{ url('/delete-video/'.$video->id)}} " type="button" class="btn btn-danger rounded">Eliminar</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                             @endif
                         </div>
                     </div>

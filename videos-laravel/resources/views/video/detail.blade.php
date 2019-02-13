@@ -22,8 +22,13 @@
 				{{$video->description}}
 			</div>
 		</div>
-
+		<div>
+			<a href="{{ route('home')}}" > <h4>Regresar</h4></a>
+		</div>
 		{{-- comentarios --}}
+		
+		@include('video.comments')
+
 	</div>
 </div>
 

@@ -11,7 +11,7 @@ class Video extends Model
 
     //Relacion uno a muchos hasMany
     public function comments(){
-    	return $this->hasMany('App\Comment'); //relaciona todos los comentarios que esten relacionados con el video    	
+    	return $this->hasMany('App\Comment')->orderBy('id','desc'); //relaciona todos los comentarios que esten relacionados con el video    	
     }
 
     //relacion de Muchos a uno, saca el usuario completo que ha creado el video, belongsTo
