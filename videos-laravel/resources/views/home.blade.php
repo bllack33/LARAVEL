@@ -25,9 +25,14 @@
                                <p>{{$video->user->name.' '. $video->user->surname}}</p>
                             </div>
                             {{-- BOTONES DE ACCION--}}
+                            {{-- BOTON VER--}}
                             <a href="{{route('detailVideo',['video_id' => $video->id])}}" class="btn btn-success">Ver</a>
+                            
+                            {{-- CONDICION PARA VER SI ES DUEÑO O ADMINISTRADOR DEL VIDEO--}}
                             @if(Auth::check() && (Auth::user()->id == $video->user->id || $video->user->role == 'ADMIN'))
-                                <a href="" class="btn btn-warning">Editar</a>
+                                {{-- BOTON EDITAR SOLO SI ES DUEÑO O ADMIN--}}
+                                <a href="{{route('videoEdit',['video_id' => $video->id])}}" class="btn btn-warning">Editar</a>
+                                {{-- BOTON ELIMINAR SOLO SI ES DUEÑO O ADMIN--}}
                                 <a href="Modal{{$video->id}}" type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal{{$video->id}}">
                                   Eliminar
                                 </a>

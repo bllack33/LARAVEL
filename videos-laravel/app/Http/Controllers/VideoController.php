@@ -104,5 +104,67 @@ class VideoController extends Controller
         }
         return redirect()->route('home')->with($message);
     }
+    public function edit($video_id){
+        $user = \Auth::user(); //trae el usuario logueado
+        $video = Video::findOrFail($video_id);
+        
+        if($user && $video->user_id == $user->id){
+            
+            return view('video.edit', array(
+                'video' => $video
+            ));
+        }else{
+            return redirect()->route('home');
+        }
+    }
+
+    public function update($video_id, Request $request){
+        $validatedData = $this->validate($request, [
+            'title' => 'required|min:5',
+            'description' =>'required',
+            'video' => 'mimes:mp4'
+        ]);
+        $user = \Auth::user();
+        $video = Video::findOrFail($video_id);
+        $video->user_id = $user->id;
+        $video->title = $request->input('title');
+        $video->description = $request->input('description');
+
+        //subida de la miniatura 
+        $image = $request->file('image');
+        if($image){
+
+            //borrar imagen anterior
+            if($video->image){
+                Storage::disk('images')->delete($video->image);
+            }
+
+            //subida imagen anteponiendo la fecha
+            $image_path = time().$image->getClientOriginalName();//nombre del fichero
+            \Storage::disk('images')->put($image_path,\File::get($image));//almacena en la carpeta storage/images la ruta de la imagen
+                       
+            $video->image = $image_path;
+        }
+
+        //subida de el video
+        $Video_file = $request->file('video');
+        if($Video_file){
+
+            //borrar el video viejo
+            if($video->video_path){
+                Storage::disk('videos')->delete($video->video_path);
+            }
+            //subir video anteponiendo la fecha
+            $video_path = time().$Video_file->getClientOriginalName();
+            \Storage::disk('videos')->put($video_path, \File::get($Video_file));
+
+            $video->video_path = $video_path;
+        }
+
+        $video->update();
+
+        return redirect()->route('home')->with(array('message' => 'El video se ha actualizado correctamente!!'));
+
+    }
 
 }
