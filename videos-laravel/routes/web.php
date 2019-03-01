@@ -96,3 +96,7 @@ Route::post('/update-video/{video_id}',array(
 	'middleware' =>'auth', //este nombre esta por defecto y comprueba si esta logueado o no 'auth'
 	'uses' => 'VideoController@update' //usa el controlador video y la accion de crear video.
 ));
+
+Route::get('buscar/{serach?}',[
+	'as' => 
+]);
