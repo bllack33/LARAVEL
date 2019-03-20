@@ -102,7 +102,7 @@ Route::get('buscar/{serach?}/{filter?}', [
 ]);
 
 //usuarios
-Route::get('/canal/{user_id}', array(
+Route::get('/canal/{user_id?}', array(
     'as' => 'usuario',
     'uses' => 'UserController@channel',
 ));
