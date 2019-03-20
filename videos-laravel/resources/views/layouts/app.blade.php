@@ -38,7 +38,7 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-                    <form action="" class="navbar navbar-form navbar-left" role="search">
+                <form action="{{ route('videoSearch') }}" class="navbar navbar-form navbar-left" role="search">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Que quieres ver?" name="search">
                         </div>
@@ -88,7 +88,7 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')            
+            @yield('content')
         </main>
         <footer class="col-md-10 offset-md-2">
             <hr>

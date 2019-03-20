@@ -2,7 +2,7 @@ body{
 
 }
 #video-list .panel-body{
-	padding-left: 0px; 
+	padding-left: 0px;
 }
 
 
@@ -14,5 +14,9 @@ body{
 }
 
 .video-image-mask .video-image{
-	width: 105%;	
+	width: 105%;
+}
+.btn-filter{
+    display: block;
+    margin-top: 5px;
 }
