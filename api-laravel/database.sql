@@ -1,0 +1,29 @@
+CREATE DATABASE IF NOT EXISTS apilaravel;
+
+USE apilaravel;
+
+CREATE TABLE users(
+id     INT(255) AUTO_INCREMENT NOT NULL,
+role   VARCHAR(20),
+nameuser   VARCHAR(255),
+surname  VARCHAR(255),
+email  VARCHAR(255),
+password VARCHAR(255),
+create_at DATETIME DEFAULT NULL,
+update_at DATETIME DEFAULT NULL,
+remenber_token VARCHAR(255),
+CONSTRAINT pk_users PRIMARY KEY(id)
+)ENGINE=INNODB;
+
+CREATE TABLE cars(
+id     INT(255) AUTO_INCREMENT NOT NULL,
+user_id INT(255) NOT NULL,
+title   VARCHAR(255),
+descripcion TEXT,
+price VARCHAR(30),
+statusc VARCHAR(30),
+create_at DATETIME DEFAULT NULL,
+update_at DATETIME DEFAULT NULL,
+CONSTRAINT pk_cars PRIMARY KEY(id),
+CONSTRAINT fk_cars_users FOREIGN KEY(user_id) REFERENCES users(id)
+)ENGINE=INNODB;

@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', array(
+Route::get('/home', array(
     'as' => 'home', //nombre de ruta
     'uses' => 'HomeController@index', //usa el controlador video y la accion de crear video.
 ));

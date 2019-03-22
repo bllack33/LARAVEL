@@ -5,7 +5,7 @@
     <div class="row">
         <div class="container">
 
-        <h2>Canal de:{{$videos->user_id}}</h2>
+        <h2>Canal de: {{$user->name.' '.$user->surname}}</h2>
 
             <div class="clearfix"></div>
             @include('video.videosList')
