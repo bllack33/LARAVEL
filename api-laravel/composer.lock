@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4731429c7f25ab92eaa813447a972209",
+    "content-hash": "969d07eaf91e61b7ffc0ba58c5a0bba1",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -365,6 +365,49 @@
                 "trusted proxy"
             ],
             "time": "2019-01-10T14:06:47+00:00"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "fa8a06e96526eb7c0eeaa47e4f39be59d21f16e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/fa8a06e96526eb7c0eeaa47e4f39be59d21f16e1",
+                "reference": "fa8a06e96526eb7c0eeaa47e4f39be59d21f16e1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2015-07-22T18:31:08+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -828,16 +871,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.16.0",
+            "version": "2.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "dd16fedc022180ea4292a03aabe95e9895677911"
+                "reference": "b509524136d579f6b15ad9af4e5bd4533d1ab6c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/dd16fedc022180ea4292a03aabe95e9895677911",
-                "reference": "dd16fedc022180ea4292a03aabe95e9895677911",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/b509524136d579f6b15ad9af4e5bd4533d1ab6c2",
+                "reference": "b509524136d579f6b15ad9af4e5bd4533d1ab6c2",
                 "shasum": ""
             },
             "require": {
@@ -884,7 +927,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-03-12T09:31:40+00:00"
+            "time": "2019-03-20T12:20:01+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -3653,16 +3696,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.7",
+            "version": "7.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "eb343b86753d26de07ecba7868fa983104361948"
+                "reference": "c29c0525cf4572c11efe1db49a8b8aee9dfac58a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/eb343b86753d26de07ecba7868fa983104361948",
-                "reference": "eb343b86753d26de07ecba7868fa983104361948",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c29c0525cf4572c11efe1db49a8b8aee9dfac58a",
+                "reference": "c29c0525cf4572c11efe1db49a8b8aee9dfac58a",
                 "shasum": ""
             },
             "require": {
@@ -3733,7 +3776,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-03-16T07:31:17+00:00"
+            "time": "2019-03-26T13:23:54+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
