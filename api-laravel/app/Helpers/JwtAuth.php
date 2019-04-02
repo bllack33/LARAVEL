@@ -61,7 +61,7 @@ class JwtAuth
         } catch (\DomainException $e) {
             $auth = false;
         }
-        if (isset($decoded) && is_object($decoded) && isset($decoded->sub)) {
+        if (isset($decoded) && isset($decoded->sub)) {
             $auth = true;
         } else {
             $auth = false;
