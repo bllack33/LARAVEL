@@ -1,0 +1,64 @@
+<html>
+
+<head>
+ <script></script>
+</head>
+
+<body>
+ <script>
+  alert(0);
+  if (!(typeof window.readCookieAdman == 'function')) {
+   window.readCookieAdman = function (name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+     var c = ca[i];
+     while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+     if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+   }
+  }
+
+  if (!(typeof window.createCookieAdman == 'function')) {
+   window.createCookieAdman = function (name, value, days) {
+    if (days) {
+     var date = new Date();
+     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+     var expires = "; expires=" + date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name + "=" + value + expires + "; path=/;";
+   }
+  }
+
+  (function () {
+   window.adman_cookie_multisite = 1;
+   window.adman_domain = "https://api.skaduks.com";
+   window.addEventListener("message", function (e) {
+    if (e.origin === window.adman_domain) {
+     var admananalytics = readCookieAdman("admananalytics");
+
+     if ((admananalytics != e.data.id)) {
+      if (admananalytics) console.log(150, { "cookie_change": { "old_cookie": admananalytics, "new_cookie": e.data.id } });
+      createCookieAdman("admananalytics", e.data.id, 1825);
+      e.data.new = 1;
+     }
+     if (e.data.new) {
+      console.log(13);
+     }
+    }
+   }, false);
+
+   var admanId = window.readCookieAdman("admananalytics"); admanId = (admanId) ? admanId : "";
+
+   var iframe = document.createElement('iframe');
+   iframe.style.display = "none";
+   iframe.src = window.adman_domain + "/cookie/cookie?a=" + admanId;
+   document.body.appendChild(iframe);
+  })()
+
+ </script>
+</body>
+
+</html>
